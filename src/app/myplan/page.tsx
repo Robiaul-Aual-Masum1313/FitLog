@@ -3,7 +3,8 @@
 import { useContext, useState } from "react";
 import SummeryBord from "../components/myPlane/SummeryBord";
 import { libContext, sharedType } from "@/context/libContext";
-import EmptyPOrS from "../components/myPlane/emptyPOrS";
+import Save from "../components/myPlane/save";
+import MyPlane2 from "../components/myPlane/myPlane2";
 
 export default function MyPlanPage() {
   const {myPlan,saved} = useContext<sharedType>(libContext)
@@ -46,7 +47,7 @@ export default function MyPlanPage() {
         </div>
           <div>
             {
-              // tabState === 'myPlane' ? <EmptyPOrS /> : null
+              tabState === 'myPlane' ? <MyPlane2 planeData = {myPlan} /> : <Save saveData = {saved}/>
             }
           </div>
       </div>
