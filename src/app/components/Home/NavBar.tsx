@@ -3,8 +3,11 @@ import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { libContext, sharedType } from "@/context/libContext";
+import { useContext } from "react";
 
 export default function NavBar() {
+  const {myPlan,saved} = useContext<sharedType>(libContext)
   const pathName = usePathname();
   const navLinks = (
     <>
@@ -64,7 +67,7 @@ export default function NavBar() {
           <Link href={"/"}>
             <div className="flex gap-1.5 items-center">
               <Image
-                className="w-4.5 h-4.5 lg:w-auto h-auto"
+                className="w-4.5 h-4.5 lg:w-auto lg:h-auto"
                 src={Logo}
                 alt=""
               />
@@ -79,15 +82,23 @@ export default function NavBar() {
           <div>
             <button className="text-[#D1D5DB] font-medium text-[12px]">
               Plan
-              <span className="bg-[#C2F800] rounded-full text-black px-1.5 py-0.5 ml-2 text-[11px] font-bold">
-                0
-              </span>
+              <Link href={"/myplan"}>
+                <span className="bg-[#C2F800] rounded-full text-black px-1.5 py-0.5 ml-2 text-[11px] font-bold">
+                  {
+                    myPlan.length > 0 ? myPlan.length : 0
+                  }
+                </span>
+              </Link>
             </button>
             <button className="text-[#D1D5DB] font-medium text-[12px] ml-5">
               Saved
-              <span className="border border-[#EEEEEE80] rounded-full px-1.5 py-0.5 ml-2 text-[11px] font-bold">
-                0
-              </span>
+              <Link href={"/myplan"}>
+                <span className="border border-[#EEEEEE80] rounded-full px-1.5 py-0.5 ml-2 text-[11px] font-bold">
+                  {
+                    saved.length > 0 ? saved.length : 0
+                  }
+                </span>
+              </Link>
             </button>
           </div>
         </div>
