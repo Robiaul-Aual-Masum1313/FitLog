@@ -16,7 +16,7 @@ const LibDetailPage = async ({ params }: PageProps) => {
       <div className="container mx-auto pt-12 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6.5">
         <div className="order-2 lg:order-1">
           <Image
-            className="rounded-[10px]"
+            className="rounded-[10px] mx-auto lg:mx-0"
             src={data.image}
             alt={data.name}
             width={700}

@@ -27,14 +27,14 @@ export default function MyPlanPage() {
           tabState === 'myPlane' ? <SummeryBord planOrsave = {myPlan}  /> : <SummeryBord planOrsave = {saved}  />
         }
           
-        <div className="grid grid-cols-2 justify-between items-center pt-12 pb-8">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 justify-between items-center pt-12 pb-8">
+          <div className="mx-auto lg:mx-0">
             <div className="w-60 p-1.5 rounded-[10px] bg-[#151921]">
-              <button onClick={() => handleTabState('myPlane')} className={`text-[12px] px-8 py-2.5  ${tabState === 'myPlane' ? 'text-white bg-[#1F242D] rounded-[10px]' : 'text-[#8A92A0]'}`}>Today’s Plan</button>
-              <button onClick={() => handleTabState('saved')} className={`text-[12px]  px-8 py-2.5 ${tabState === 'saved' ? 'text-white bg-[#1F242D]  rounded-[10px]' : 'text-[#8A92A0]'}`}>Saved</button>
+              <button onClick={() => handleTabState('myPlane')} className={`cursor-pointer text-[12px] px-8 py-2.5  ${tabState === 'myPlane' ? 'text-white bg-[#1F242D] rounded-[10px]' : 'text-[#8A92A0]'}`}>Today’s Plan</button>
+              <button onClick={() => handleTabState('saved')} className={`cursor-pointer text-[12px]  px-8 py-2.5 ${tabState === 'saved' ? 'text-white bg-[#1F242D]  rounded-[10px]' : 'text-[#8A92A0]'}`}>Saved</button>
             </div>
           </div>
-          <div className="flex justify-end items-center gap-4">
+          <div className="flex justify-center lg:justify-end items-center gap-4">
             <p>Sort By </p>
             <select defaultValue="Pick a color" className="select bg-black">
               <option disabled={true}>Pick a color</option>
