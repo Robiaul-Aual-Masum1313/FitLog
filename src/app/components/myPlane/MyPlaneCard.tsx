@@ -4,10 +4,10 @@ import Watchc from "@/assets/watchc.png";
 import Kaloric from "@/assets/kaloric.png";
 import Ratingc from "@/assets/ratingc.png";
 import { RxCross2 } from "react-icons/rx";
-import { FaCheck } from "react-icons/fa";
 import Link from "next/link";
 import { useContext } from "react";
 import { libContext, sharedType } from "@/context/libContext";
+import CompleteButton from "./completeButton";
 
 export interface MyPlaneCardProps {
   planData: DataTypes;
@@ -60,9 +60,7 @@ const MyPlaneCard = ({ planData }: MyPlaneCardProps) => {
             View Details
           </button>
         </Link>
-        <button className="cursor-pointer flex justify-start items-center gap-2.5 text-black bg-[#CCFF00] py-2.5  px-5.5 rounded-[20px] font-semibold text-[12px]">
-          <FaCheck /> Mark as Done
-        </button>
+          <CompleteButton />
         <button onClick={() => handleRemoveplan(planData)} className="cursor-pointer">
           <RxCross2 className="text-[#6B7280]" />
         </button>

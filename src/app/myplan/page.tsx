@@ -7,8 +7,9 @@ import Save from "../components/myPlane/save";
 import MyPlane2 from "../components/myPlane/myPlane2";
 
 export default function MyPlanPage() {
-  const {myPlan,saved} = useContext<sharedType>(libContext)
+  const {myPlan,setMyPlan,saved,setSaved} = useContext<sharedType>(libContext)
   const [tabState, setTabState] = useState<'myPlane' | 'saved'>('myPlane')
+  const [sortBy, setSortBy] = useState<'rating' | 'calories' | 'duration'>( 'duration')
   const handleTabState = (clickState: 'myPlane' | 'saved') => {
     if(clickState === 'myPlane'){
       setTabState('myPlane')
@@ -16,6 +17,40 @@ export default function MyPlanPage() {
       setTabState('saved')
     }
   }
+  const handleSort = (sortType) => {
+    const newMyplane = [...myPlan]
+    const newSaved = [...saved]
+    if(tabState === 'myPlane'){
+      if(sortType === 'calories'){
+        newMyplane.sort((a,b) => b.caloriesBurned -a.caloriesBurned)
+        setMyPlan(newMyplane)
+      }
+      if(sortType === 'rating'){
+        newMyplane.sort((a,b) => b.rating -a.rating)
+        setMyPlan(newMyplane)
+      }
+      if(sortType === 'duration'){
+        newMyplane.sort((a,b) => b.duration -a.duration)
+        setMyPlan(newMyplane)
+      }
+    }
+    if(tabState === 'saved'){
+      if(sortType === 'calories'){
+        newSaved.sort((a,b) => b.caloriesBurned -a.caloriesBurned)
+        setSaved(newSaved)
+      }
+      if(sortType === 'rating'){
+        newSaved.sort((a,b) => b.rating -a.rating)
+        setSaved(newSaved)
+      }
+      if(sortType === 'duration'){
+        newSaved.sort((a,b) => b.duration -a.duration)
+        setSaved(newSaved)
+      }
+    }
+  }
+  console.log(sortBy);
+  
   return (
     <div className="px-2 lg:px-0">
       <div className="container mx-auto pt-12">
@@ -36,11 +71,14 @@ export default function MyPlanPage() {
           </div>
           <div className="flex justify-center lg:justify-end items-center gap-4">
             <p>Sort By </p>
-            <select defaultValue="Pick a color" className="select bg-black">
-              <option disabled={true}>Pick a color</option>
-              <option>Crimson</option>
-              <option>Amber</option>
-              <option>Velvet</option>
+            <select value={sortBy} onChange={(e) => {
+              setSortBy(e.target.value as 'rating' | 'calories' | 'duration') 
+              handleSort(e.target.value as 'rating' | 'calories' | 'duration')
+              }} className="select bg-black">
+              {/* <option disabled={true}>Pick a color</option> */}
+              <option value={'duration'}>Duration</option>
+              <option value={'calories'}>Calories</option>
+              <option value={'rating'}>Rating</option>
             </select>
           </div>
 
