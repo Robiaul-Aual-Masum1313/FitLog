@@ -17,7 +17,7 @@ export default function MyPlanPage() {
       setTabState('saved')
     }
   }
-  const handleSort = (sortType) => {
+  const handleSort = (sortType :'rating' | 'calories' | 'duration') => {
     const newMyplane = [...myPlan]
     const newSaved = [...saved]
     if(tabState === 'myPlane'){
@@ -70,11 +70,11 @@ export default function MyPlanPage() {
             </div>
           </div>
           <div className="flex justify-center lg:justify-end items-center gap-4">
-            <p>Sort By </p>
+            <p className="text-[#8A92A0] text-[12px] font-medium">Sort By </p>
             <select value={sortBy} onChange={(e) => {
               setSortBy(e.target.value as 'rating' | 'calories' | 'duration') 
               handleSort(e.target.value as 'rating' | 'calories' | 'duration')
-              }} className="select bg-black">
+              }} className="select bg-[#13161D] text-white text-[12px] font-medium">
               {/* <option disabled={true}>Pick a color</option> */}
               <option value={'duration'}>Duration</option>
               <option value={'calories'}>Calories</option>
