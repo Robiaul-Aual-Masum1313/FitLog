@@ -9,7 +9,7 @@ export default async function Library() {
     // console.log(data);
     
   return (
-    <div className="px-2 lg:px-0">
+    <div id="workout" className="px-2 lg:px-0">
         <div className="container mx-auto">
             <h2 className="text-[30px] font-bold text-white">THE LIBRARY</h2>
             <h5 className="text-[#9CA3AF] font-medium text-[14px]">Twelve lifts covering every major muscle group.</h5>

@@ -16,9 +16,11 @@ export default function Banner() {
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
             into today's plan, and watch the week's work add up.
           </p>
+          <a href={'#workout'}> 
           <button className="bg-[#C2F800] px-6 py-2.5 text-black text-[12px] font-bold rounded-md">
             BROWSE WORKOUTS
           </button>
+          </a>
         </div>
         <div className="flex justify-center lg:justify-end">
           <Image className="" src={HeroImage} alt="Fit Log Hero image" />

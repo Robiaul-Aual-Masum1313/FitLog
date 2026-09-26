@@ -7,6 +7,7 @@ Discover exercises, build your workout, and stay on track. Explore a variety of 
 ## 🛠️ Technologies Used
 
   - Next.js
+  - App router(Next.js)
   - Tailwind CSS
   - TypeScript (ES6+)
   - React-Toastify (NPM Package)

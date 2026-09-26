@@ -13,10 +13,10 @@ export interface SavedCardProps {
 }
 
 const SavedCard = ({ saveSData }: SavedCardProps) => {
-  const {myPlan,setMyPlan} = useContext<sharedType>(libContext)
+  const {saved,setSaved} = useContext<sharedType>(libContext)
   const handleRemoveplan = (removeData: DataTypes) => {
-  const afterRemoved = myPlan.filter(item => removeData.id  !== item.id)
-  setMyPlan(afterRemoved)
+  const afterRemoved = saved.filter(item => removeData.id  !== item.id)
+  setSaved(afterRemoved)
 
   }
   return (
