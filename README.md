@@ -3,6 +3,7 @@
 ## About My Project 
 
 Discover exercises, build your workout, and stay on track. Explore a variety of exercises, choose your favorites, and save them for later. Create your own personalized workout collection and make every training session count.
+[Click to see my project](https://fit-log-gules-seven.vercel.app/)
 
 ## 🛠️ Technologies Used
 
